@@ -1,0 +1,34 @@
+name: Calculadora Web CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verificar HTML
+        run: test -f index.html
+
+      - name: Verificar CSS
+        run: test -f style.css
+
+      - name: Verificar JavaScript
+        run: test -f script.js
+
+      - name: Verificar Dockerfile
+        run: test -f Dockerfile
+
+      - name: Proyecto correcto
+        run: echo "Proyecto verificado correctamente"
